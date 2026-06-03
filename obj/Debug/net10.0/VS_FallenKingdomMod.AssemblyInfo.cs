@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VS_FallenKingdomMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e92901ae8cb35411547f1958cb472db7663eafa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5440d4a8b5c97d680a835991e5044440ce911bf1")]
 [assembly: System.Reflection.AssemblyProductAttribute("VS_FallenKingdomMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VS_FallenKingdomMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

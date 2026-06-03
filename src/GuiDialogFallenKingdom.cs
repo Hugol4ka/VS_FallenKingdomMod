@@ -41,8 +41,8 @@ namespace FallenKingdom
                     .AddRichtext("<font color=\"#d0c8b8\">J'ai lu et j'accepte le règlement. Je comprends que mon choix d'équipe est </font><font color=\"#c8953c\"><strong>définitif</strong></font>.", CairoFont.WhiteSmallText(), ElementBounds.Fixed(60, 611, 550, 30), "e_accept_text")
                     
                     // Boutons Équipes
-                    .AddSmallButton("EQUIPE ATLAS", OnJoinAtlas, ElementBounds.Fixed(90, 650, 200, 40), "btn_atlas")
-                    .AddSmallButton("EQUIPE Nouvel-Horizon", OnJoinHorizon, ElementBounds.Fixed(350, 650, 200, 40), "btn_horizon")
+                    .AddSmallButton("EQUIPE ATLAS", OnJoinAtlas, ElementBounds.Fixed(90, 650, 200, 40), EnumButtonStyle.Normal, "btn_atlas")
+                    .AddSmallButton("EQUIPE Nouvel-Horizon", OnJoinHorizon, ElementBounds.Fixed(350, 650, 200, 40), EnumButtonStyle.Normal, "btn_horizon")
                 
                 .EndChildElements()
                 .Compose();
