@@ -5,10 +5,22 @@ namespace FallenKingdom
 {
     public class GuiDialogFallenKingdom : GuiDialog
     {
-        public override string ToggleKeyCombinationCode => null;
+        public override string? ToggleKeyCombinationCode => null;
 
-        public GuiDialogFallenKingdom(ICoreClientAPI capi) : base(capi)
+        private readonly int atlasCount;
+        private readonly int horizonCount;
+        private readonly int maxCapacity;
+        private readonly IClientNetworkChannel clientChannel;
+
+        public override bool CaptureAllInputs() => true;
+        public override bool PrefersUngrabbedMouse => true;
+
+        public GuiDialogFallenKingdom(ICoreClientAPI capi, int atlasCount, int horizonCount, int maxCapacity, IClientNetworkChannel clientChannel) : base(capi)
         {
+            this.atlasCount = atlasCount;
+            this.horizonCount = horizonCount;
+            this.maxCapacity = maxCapacity;
+            this.clientChannel = clientChannel;
             SetupDialog();
         }
 
@@ -16,6 +28,9 @@ namespace FallenKingdom
         {
             ElementBounds bgBounds = ElementBounds.Fill.WithFixedPadding(GuiStyle.ElementToDialogPadding);
             bgBounds.BothSizing = ElementSizing.FitToChildren;
+
+            string atlasLabel = atlasCount > 0 || maxCapacity > 0 ? $"EQUIPE ATLAS ({atlasCount}/{maxCapacity})" : "EQUIPE ATLAS";
+            string horizonLabel = horizonCount > 0 || maxCapacity > 0 ? $"EQUIPE Nouvel-Horizon ({horizonCount}/{maxCapacity})" : "EQUIPE Nouvel-Horizon";
 
             SingleComposer = capi.Gui
                 .CreateCompo("fallenkingdom", ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle))
@@ -41,8 +56,8 @@ namespace FallenKingdom
                     .AddRichtext("<font color=\"#d0c8b8\">J'ai lu et j'accepte le règlement. Je comprends que mon choix d'équipe est </font><font color=\"#c8953c\"><strong>définitif</strong></font>.", CairoFont.WhiteSmallText(), ElementBounds.Fixed(60, 611, 550, 30), "e_accept_text")
                     
                     // Boutons Équipes
-                    .AddSmallButton("EQUIPE ATLAS", OnJoinAtlas, ElementBounds.Fixed(90, 650, 200, 40), EnumButtonStyle.Normal, "btn_atlas")
-                    .AddSmallButton("EQUIPE Nouvel-Horizon", OnJoinHorizon, ElementBounds.Fixed(350, 650, 200, 40), EnumButtonStyle.Normal, "btn_horizon")
+                    .AddSmallButton(atlasLabel, OnJoinAtlas, ElementBounds.Fixed(90, 650, 200, 40), EnumButtonStyle.Normal, "btn_atlas")
+                    .AddSmallButton(horizonLabel, OnJoinHorizon, ElementBounds.Fixed(350, 650, 200, 40), EnumButtonStyle.Normal, "btn_horizon")
                 
                 .EndChildElements()
                 .Compose();
@@ -59,8 +74,57 @@ namespace FallenKingdom
             SingleComposer.GetButton("btn_horizon").Enabled = on;
         }
 
-        private bool OnJoinAtlas() { capi.ShowChatMessage("ATLAS REJOINT !"); TryClose(); return true; }
-        private bool OnJoinHorizon() { capi.ShowChatMessage("NOUVEL-HORIZON REJOINT !"); TryClose(); return true; }
+        private void SetButtonsEnabled(bool enabled)
+        {
+            SingleComposer.GetButton("btn_atlas").Enabled = enabled;
+            SingleComposer.GetButton("btn_horizon").Enabled = enabled;
+        }
+
+        private bool OnJoinAtlas()
+        {
+            if (clientChannel != null)
+            {
+                clientChannel.SendPacket(new FactionJoinPacket { FactionId = 1 });
+                SetButtonsEnabled(false); // Désactive temporairement en attendant la réponse
+            }
+            else
+            {
+                capi.ShowChatMessage("TEST : ATLAS REJOINT !");
+                TryClose();
+            }
+            return true;
+        }
+
+        private bool OnJoinHorizon()
+        {
+            if (clientChannel != null)
+            {
+                clientChannel.SendPacket(new FactionJoinPacket { FactionId = 2 });
+                SetButtonsEnabled(false); // Désactive temporairement en attendant la réponse
+            }
+            else
+            {
+                capi.ShowChatMessage("TEST : NOUVEL-HORIZON REJOINT !");
+                TryClose();
+            }
+            return true;
+        }
+
+        public void OnServerResponse(FactionJoinResponsePacket packet)
+        {
+            if (packet.Success)
+            {
+                capi.ShowChatMessage("Inscription validée avec succès !");
+                TryClose();
+            }
+            else
+            {
+                capi.TriggerIngameError(this, "faction_error", packet.ErrorMessage);
+                // Réactive les boutons pour permettre au joueur de réessayer
+                SetButtonsEnabled(true);
+            }
+        }
+
         private void OnScroll(float value) { }
         private void OnTitleBarClose() { TryClose(); }
     }

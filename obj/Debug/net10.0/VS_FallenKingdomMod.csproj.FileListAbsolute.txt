@@ -12,3 +12,17 @@
 /root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.pdb
 /root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/ref/VS_FallenKingdomMod.dll
 /root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.csproj.AssemblyReference.cache
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.csproj.AssemblyReference.cache
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.AssemblyInfoInputs.cache
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.AssemblyInfo.cs
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.csproj.CoreCompileInputs.cache
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.sourcelink.json
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.dll
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/refint/VS_FallenKingdomMod.dll
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.pdb
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/bin/Debug/net10.0/modinfo.json
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/bin/Debug/net10.0/VS_FallenKingdomMod.deps.json
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/bin/Debug/net10.0/VS_FallenKingdomMod.dll
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/bin/Debug/net10.0/VS_FallenKingdomMod.pdb
+/Users/macbookdepierre/Fallen Kingdom/VS_FallenKingdomMod/obj/Debug/net10.0/ref/VS_FallenKingdomMod.dll

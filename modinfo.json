@@ -2,7 +2,7 @@
   "type": "code",
   "modid": "fallenkingdom",
   "name": "Fallen Kingdom",
-  "authors": ["Laka_Rtn", "Pierre1200"],
+  "authors": ["Laka_Rtn", "Vargal"],
   "description": "Mod pour l'événement Fallen Kingdom inter-serveur",
   "version": "1.0.0",
   "dependencies": {

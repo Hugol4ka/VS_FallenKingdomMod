@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -16,6 +16,10 @@
   <ItemGroup>
     <Reference Include="VintagestoryAPI">
       <HintPath>lib/VintagestoryAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>lib/protobuf-net.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
