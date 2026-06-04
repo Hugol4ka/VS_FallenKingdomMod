@@ -21,7 +21,7 @@ namespace FallenKingdom
                 .CreateCompo("fallenkingdom", ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle))
                 .AddShadedDialogBG(bgBounds)
                 .AddDialogTitleBar("Fallen Kingdom - Inscription", OnTitleBarClose)
-                .BeginChildElements()
+                .BeginChildElements(bgBounds)
                 
                     // Espace réservé pour votre image PNG
                     .AddInset(ElementBounds.Fixed(10, 10, 620, 160))
