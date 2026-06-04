@@ -12,3 +12,6 @@
 /root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.pdb
 /root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/ref/VS_FallenKingdomMod.dll
 /root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/VS_FallenKingdomMod.csproj.AssemblyReference.cache
+/root/Betty/VS_FallenKingdomMod/bin/Debug/net10.0/protobuf-net.dll
+/root/Betty/VS_FallenKingdomMod/bin/Debug/net10.0/protobuf-net.Core.dll
+/root/Betty/VS_FallenKingdomMod/obj/Debug/net10.0/VS_Falle.8BA11ADA.Up2Date
